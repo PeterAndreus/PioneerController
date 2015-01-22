@@ -26,6 +26,21 @@ mute(){
 	sendCommand 'mz'
 }
 
+setBD(){
+	sendCommand '25fn'
+}
+
+setPC(){
+	sendCommand '23fn'
+}
+
+manualCommand(){
+	clear
+	echo "Zadajte prikaz: "
+	read CMD
+	sendCommand "$CMD"
+}
+
 customVolume(){
 	echo 
 	echo  "-80.0 dB                                -50.0 dB                                +12.0 dB"
@@ -54,6 +69,10 @@ echo " /_/   /_/\\____/_/ /_/\\___/\\___/_/     "
 echo "L: Volume Up			K: Volume Down"
 echo "V: Volume 			M: Mute"
 echo "I: Power On			O: Power Down"
+echo ""
+echo "1: BD	2: PC"
+echo ""
+echo "W: Manual Command"
 
 echo -n "Press any key to continue: "
 read -n1 CMD
@@ -66,6 +85,8 @@ case $CMD in
 	[mM]) mute ;;
 	[qQ]) clear; exit;;
 	[vV]) customVolume ;;
+	[wW]) manualCommand ;;
+	1) setBD ;;
 esac
 mainFunction
 }
