@@ -36,7 +36,7 @@ setPC(){
 
 manualCommand(){
 	clear
-	echo "Zadajte prikaz: "
+	echo -n "Enter command: "
 	read CMD
 	sendCommand "$CMD"
 }
@@ -47,7 +47,7 @@ customVolume(){
 	echo  "----------------------------------------------------------------------------------------"
 	echo  "000                                       061                                        185"
 	echo  
-	echo -n "Hodnota volume: "
+	echo -n "Enter volume: "
 	read VOL
 	while [ $(echo -n $VOL | wc -m) -lt "3" ] 
 	do
@@ -87,6 +87,7 @@ case $CMD in
 	[vV]) customVolume ;;
 	[wW]) manualCommand ;;
 	1) setBD ;;
+	2) setPC ;;
 esac
 mainFunction
 }
